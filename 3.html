@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get In Touch</title>
+   
+   
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh;   */
+}
+
+.container {
+    background-color: #fff;
+    padding: 10px 100px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+h2 {
+    color: #ff6f61;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-info h3 {
+    margin: 0 0 10px 0;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+button {
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #e55e53;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Get In Touch</h2>
+        <!-- <div class="contact-info">
+            <h3>Say Hello</h3>
+            <p>Leading Managed Service Provider for Cloud, Cybersecurity & Networking Solutions</p>
+            <p>Phone: +91 20 63111 508</p>
+            <p>Email: sales@microscancommunications.com</p>
+        </div> -->
+        <form id="contact-form">
+            <label for="full-name">Full Name*</label>
+            <input type="text" id="full-name" name="full-name" required>
+
+            <label for="business-email">Business Email Address*</label>
+            <input type="email" id="business-email" name="business-email" required>
+
+            <label for="phone-number">Phone Number*</label>
+            <input type="tel" id="phone-number" name="phone-number" required>
+
+            <label for="organization-name">Organization Name*</label>
+            <input type="text" id="organization-name" name="organization-name" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+
+            <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (recaptchaResponse === "") {
+        alert("Please complete the reCAPTCHA.");
+        return;
+    }
+
+    const formData = new FormData(event.target);
+    const data = {
+        fullName: formData.get('full-name'),
+        businessEmail: formData.get('business-email'),
+        phoneNumber: formData.get('phone-number'),
+        organizationName: formData.get('organization-name'),
+        message: formData.get('message'),
+        recaptchaResponse: recaptchaResponse
+    };
+
+    fetch('your-server-side-script', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Form submitted successfully!");
+        } else {
+            alert("Form submission failed. Please try again.");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("An error occurred. Please try again.");
+    });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        /* Form Section */
+        .formIndex {
+            padding: 40px 0;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .formIndex .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #40091B;
+            border-radius: 10px;
+            background: #f7f2f2;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Label and Input container */
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Labels and Inputs */
+        label {
+            font-size: 1.1em;
+            color: #40091B;
+            flex: 1; /* Allows label to take up available space */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            padding: 12px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+            flex: 2; /* Allows input to take up remaining space */
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            border-color: #FA006A;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            flex: 2;
+        }
+
+        /* Submit Button */
+        button {
+            padding: 15px;
+            background-color: #FA006A;
+            color: white;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #FFC000;
+        }
+
+        /* Google reCAPTCHA Styling */
+        .g-recaptcha {
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .formIndex .container {
+                width: 95%;
+            }
+
+            form {
+                gap: 15px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+
+            label, input[type="text"], input[type="email"], input[type="tel"], textarea {
+                flex: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="formIndex">
+        <div class="container">
+            <h2 style="text-align: center;">Get In Touch</h2>
+            <form id="contact-form">
+                <div class="form-row">
+                    <label for="full-name">Full Name*</label>
+                    <input type="text" id="full-name" name="full-name" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="business-email">Business Email Address*</label>
+                    <input type="email" id="business-email" name="business-email" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="phone-number">Phone Number*</label>
+                    <input type="tel" id="phone-number" name="phone-number" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="organization-name">Organization Name*</label>
+                    <input type="text" id="organization-name" name="organization-name" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+
+                <!-- <div class="captcha">
+                    <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+                    <span>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</span>
+                </div> -->
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+    
+</body>
+</html>

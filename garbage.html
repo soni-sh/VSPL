@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.services-section {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #dddddd;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.tab-button.active {
+    background-color: #ff9800;
+    color: #ffffff;
+}
+
+.tab-content {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tab-content.active {
+    display: flex;
+}
+
+.service-card {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.service-card img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.service-card h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333333;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+    </style>
+</head>
+<body>
+    <section class="services-section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="tabs">
+                <button class="tab-button active" data-tab="cloud-services">Cloud Services</button>
+                <button class="tab-button" data-tab="cyber-security">Cyber Security</button>
+                <button class="tab-button" data-tab="network-management">Network Management</button>
+            </div>
+            <div class="tab-content active" id="cloud-services">
+                <div class="service-card">
+                    <img src="assets/images/aws.png" alt="AWS Cloud Services">
+                    <h3>AWS Cloud Services</h3>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/azure.png" alt="Azure Cloud Services">
+                    <h3>Azure Cloud Services</h3>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/mcloud.png" alt="MCloud Services">
+                    <h3>MCloud Services</h3>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/managed-cloud.png" alt="Managed Cloud Services">
+                    <h3>Managed Cloud Services</h3>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/cloud-disaster.png" alt="Cloud Disaster Services">
+                    <h3>Cloud Disaster Services</h3>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/devops.png" alt="DevOps Consulting Services">
+                    <h3>DevOps Consulting Services</h3>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/cloud-cost.png" alt="Cloud Cost Optimization">
+                    <h3>Cloud Cost Optimization</h3>
+                </div>
+            </div>
+            <div class="tab-content" id="cyber-security">
+                <!-- Content for Cyber Security -->
+                <div class="service-card">
+                    <img src="assets/images/aws.png" alt="AWS Cloud Services">
+                    <h3>AWS Cloud Services</h3>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/azure.png" alt="Azure Cloud Services">
+                    <h3>Azure Cloud Services</h3>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/mcloud.png" alt="MCloud Services">
+                    <h3>MCloud Services</h3>
+                </div>
+            </div>
+            <div class="tab-content" id="network-management">
+                <!-- Content for Network Management -->
+                <div class="service-card">
+                    <img src="assets/images/aws.png" alt="AWS Cloud Services">
+                    <h3>AWS Cloud Services</h3>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/azure.png" alt="Azure Cloud Services">
+                    <h3>Azure Cloud Services</h3>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/mcloud.png" alt="MCloud Services">
+                    <h3>MCloud Services</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to the clicked button
+            this.classList.add('active');
+
+            // Get the data-tab attribute value
+            const tab = this.getAttribute('data-tab');
+
+            // Hide all tab contents
+            tabContents.forEach(content => content.classList.remove('active'));
+            // Show the corresponding tab content
+            document.getElementById(tab).classList.add('active');
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
